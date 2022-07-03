@@ -18,10 +18,15 @@ namespace ChromiumDemo
             InitializeComponent();
 
             //实例一个Cef设置，设置其中的本地缓存路径
-            CefSettings Settings = new CefSettings();
-            Settings.CachePath = System.IO.Directory.GetCurrentDirectory() + @"\Cache";
+            CefSettings settings = new CefSettings();
+            settings.CachePath = System.IO.Directory.GetCurrentDirectory() + @"\Cache";
+            //settings.CefCommandLineArgs.Add("--ignore-urlfetcher-cert-requests", "1"); //忽略Url获取证书请求
+            //settings.CefCommandLineArgs.Add("--ignore-certificate-errors", "1"); //忽略服务器证书错误
+            //settings.CefCommandLineArgs.Add("--enable-webgl", "1"); //启WebGL支持
+            //settings.CefCommandLineArgs.Add("--ignore-gpu-blacklist", "1"); //忽略GPU黑名单
+            settings.CefCommandLineArgs.Add("--allow-file-access-from-files", "1"); //允许从本地载入资源
             //将Cef设置传进去，实例一个web_Auto
-            Cef.Initialize(Settings);
+            Cef.Initialize(settings);
 
             //chromeBrowserLoadingStateChangedCallBack = new ChromeBrowserLoadingStateChangedCallBack(ChromeBrowserLoadingStateChangedEvent);
             chromeBrowserFrameLoadEndCallBack = new ChromeBrowserFrameLoadEndCallBack(chromeBrowserFrameLoadEndEvent);
