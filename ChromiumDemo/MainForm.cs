@@ -25,6 +25,7 @@ namespace ChromiumDemo
             //settings.CefCommandLineArgs.Add("--enable-webgl", "1"); //启WebGL支持
             //settings.CefCommandLineArgs.Add("--ignore-gpu-blacklist", "1"); //忽略GPU黑名单
             settings.CefCommandLineArgs.Add("--allow-file-access-from-files", "1"); //允许从本地载入资源
+            //settings.UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36";
             //将Cef设置传进去，实例一个web_Auto
             Cef.Initialize(settings);
 
